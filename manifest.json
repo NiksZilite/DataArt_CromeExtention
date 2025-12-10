@@ -1,0 +1,32 @@
+{
+  "name": "Extention",
+  "description": "Extention Made by Niks Zīlīte",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions" : ["scripting", "activeTab"],
+
+  "action": {
+    "default_popup": "extentions_UI.html"
+  },
+    "background" : {
+        "service_worker" : "backend/service_worker.js"
+    },
+
+  "icons": {
+    "18": "images/icon-144.png",
+    "36": "images/icon-144.png",
+    "48": "images/icon-144.png",
+    "144": "images/icon-144.png"
+  },
+
+  "web_accessible_resources": [{
+    "resources": [
+      "fonts/MyFontWOFF2.woff2"
+    ],
+        "matches": ["*://*/*"],
+        "extention_ids" : ["*"],
+        "use_dynamic_url" : true
+  }]
+
+}
+

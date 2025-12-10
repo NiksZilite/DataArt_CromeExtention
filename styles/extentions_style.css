@@ -1,0 +1,49 @@
+body {
+    background-color: #b9c724;
+    min-width: 180px;
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#start-button {
+    background-color: #131414;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.button_svg {
+  fill: #b9c724;
+  cursor: pointer;
+  z-index: 10;
+  min-width: 50px;
+  min-height: 50px;
+}
+
+.button_svg:hover {
+    fill: white;
+}
+
+#player_color_selector {
+    background-color: #131414;
+    border: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    color: #b9c724;
+    font-size: 100px;
+
+    max-height: 100px;
+}
+
+#player-color-showcase {
+  fill: #b9c724;
+  z-index: 10;
+  min-width: 50px;
+  min-height: 50px;
+}
