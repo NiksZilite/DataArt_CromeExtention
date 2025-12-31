@@ -2,14 +2,23 @@ console.log("player.js is injected into the tab");
 
 const player = document.getElementById('playerSvg');
 
-
 let playerX = 0;
 let playerY = 0;
 
 let playerCurrentX = 0;
 let playerCurrentY = 0;
 
-const playerMovementSpeed = 40; //40px is the arrow key scroll speed
+const playerMovementSpeed = 23; //40px is the arrow key scroll speed
+
+
+let playerStartingOffset = 10;
+let playerSize = 50;
+let playerBottomPadding = 30;
+let playerBottomOffset;
+const webpageHeight = document.documentElement.scrollHeight;
+const webpageWidth = document.documentElement.scrollWidth;
+
+
 
 document.addEventListener('keydown', function(event) {
     // if (event.key === 'w' || event.key === 'W' && event.key === 'd' || event.key === 'D') {
@@ -34,22 +43,51 @@ document.addEventListener('keydown', function(event) {
 
 function walk_UP() {
     playerY = playerY - playerMovementSpeed;
-    player.style.top = playerY + "px";
+
+    if (playerY < 0 ) {
+        player.style.top = playerStartingOffset + "px";
+        playerY = playerStartingOffset;
+    } else {
+        player.style.top = playerY + "px";
+    }
 }
 
-function walk_DOWN() {
+function walk_DOWN() {                                  //  if(playerY ">" or "<" idk webpage-height)
     playerY = playerY + playerMovementSpeed;
-    player.style.top = playerY + "px";
+    playerBottomOffset = playerBottomPadding + playerSize;
+
+    if (playerY > webpageHeight - playerBottomOffset) {             
+        player.style.top = webpageHeight - playerBottomOffset + "px";
+        playerY = webpageHeight - playerBottomOffset;
+    } else {
+        player.style.top = playerY + "px";
+    }
 }
 
 function walk_RIGHT() {
     playerX = playerX + playerMovementSpeed;
-    player.style.left = playerX + "px";
+    console.log(webpageWidth, playerX);
+
+
+    if (playerX > webpageWidth) {
+        player.style.left = webpageWidth + "px";
+        playerX = webpageWidth;
+    } else {
+        player.style.left = playerX + "px";
+    }
+
 }
 
 function walk_LEFT() {
     playerX = playerX - playerMovementSpeed;
-    player.style.left = playerX + "px";
+
+    if (playerX < 0 ) {             
+        player.style.left = "10px"
+        playerX = 10;
+    } else {
+        player.style.left = playerX + "px";
+    }
+
 }
 
 // function walk_UP_RIGHT(){
