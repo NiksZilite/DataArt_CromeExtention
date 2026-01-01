@@ -23,7 +23,11 @@ body, html, * {
   text-decoration: none !important;
   text-wrap: wrap !important;
   font-style: normal !important;
+
+  animation: invert 20s;
+  animation-iteration-count: infinite;
 }
+
 
 body {
   min-width: 2000px;
@@ -46,4 +50,13 @@ a {
   fill: #b9c724 !important;
 }
 
+@keyframes invert {
+  0% {filter: invert(0);}
+  20% {filter: invert(0);}
 
+  40% {filter: invert(100);}
+  60% {filter: invert(100);}
+
+  80% {filter: invert(0);}
+  100% {filter: invert(0);}
+}

@@ -35,6 +35,8 @@ document.addEventListener('keydown', function(event) {
     walk_LEFT();
     } else if (event.key === 'Enter'){
     check_for_link();
+    var datetime = "LastSync: " + new Date().today() + " @ " + new Date().timeNow();
+    console.log(datetime);
     }
     // else {
     //     console.log("This is the space key: " + event.key);
@@ -108,10 +110,24 @@ function check_for_link() {
     console.log("Player Top: " + playerCurrentY + " " + "Player Left: " + playerCurrentX);
 
     let possible_link = document.elementFromPoint(playerCurrentX, playerCurrentY);
-    console.log(possible_link.nodeName + " was clicked.");
+    
 
     if (possible_link !== null) { // (possible_LINK.nodeName === 'A' || possible_LINK.nodeName === 'a' && possible_LINK !== null)
+    console.log(possible_link.nodeName + " was clicked.");
     possible_link.click();
     }
 }
 
+
+
+
+
+
+
+Date.prototype.today = function () { 
+    return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
+}
+
+Date.prototype.timeNow = function () {
+     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+}
