@@ -11,23 +11,37 @@
     background-color: red;
 } */
 
+:root {
+
+  --backgroundHUE: 0;
+  --textColorHUE: 280;
+
+  --backgroundLightness: 90%;
+  --textColorLightness: 30%;
+
+}
+
 body, html, * {
-  /* margin: 0;
-  padding: 0; */
   font-family: "customFont" !important;
   font-size: 50px !important;
-  /* color: #b9c724 !important; */
-  /* background-color: rgb(25, 71, 25) !important; */
   position: relative !important;
   border: none !important;
   text-decoration: none !important;
   text-wrap: wrap !important;
   font-style: normal !important;
 
-  animation: invert 20s;
-  animation-iteration-count: infinite;
-}
+  background-color: hsl(var(--backgroundHUE, 0), 100%, var(--backgroundLightness, 90%));
+  color: hsl(var(--textColorHUE, 280), 100%, var(--textColorLightness, 30%));
+  /* filter: invert(var(--invertPrecent, 0%)) !important; */
 
+
+  /*
+    Dawn = background-color: hsl(0, 100%, 90%), color: hsl(280, 100%, 30%)
+    Noon = 
+    Dusk = 
+    Midnight = background-color: hsl(300, 100%, 10%), color: hsl(40, 100%, 85%)
+  */
+}
 
 body {
   min-width: 2000px;
@@ -50,7 +64,7 @@ a {
   fill: #b9c724 !important;
 }
 
-@keyframes invert {
+/* @keyframes invert {
   0% {filter: invert(0);}
   20% {filter: invert(0);}
 
@@ -60,3 +74,14 @@ a {
   80% {filter: invert(0);}
   100% {filter: invert(0);}
 }
+
+@keyframes timeCycle {
+  0% {filter: invert(0);}
+  20% {filter: invert(0);}
+
+  40% {filter: invert(100);}
+  60% {filter: invert(100);}
+
+  80% {filter: invert(0);}
+  100% {filter: invert(0);}
+} */
