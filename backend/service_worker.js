@@ -1,7 +1,15 @@
 
+let extentionState = 'off';
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === "runScript") {
+    if (message.action === "runBackend") {
+        runBackend();
+    }
+});
+
+function runBackend() {
+        extentionState = 'on';
+
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             chrome.scripting.executeScript({
                 target: { tabId: tabs[0].id },
@@ -20,5 +28,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 files: ["styles/injected_style.css"]
             });
         });
+}
+
+function resetExtension() {
+    runBackend();
+}
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.status === "complete" && extentionState == 'on') {
+        resetExtension();
     }
 });

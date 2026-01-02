@@ -32,6 +32,7 @@ body, html, * {
 
   background-color: hsl(var(--backgroundHUE, 0), 100%, var(--backgroundLightness, 90%));
   color: hsl(var(--textColorHUE, 280), 100%, var(--textColorLightness, 30%));
+  transition: background-color 0.5s ease-out, color 0.5s ease-out;
   /* filter: invert(var(--invertPrecent, 0%)) !important; */
 
 

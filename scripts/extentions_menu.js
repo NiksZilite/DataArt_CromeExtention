@@ -1,13 +1,16 @@
 let playerColor;
 let PlayerColorID = 0;
 
+
+
 const playerSprite = document.getElementById("player-color-showcase");
 
 
 
 document.getElementById("start-button").addEventListener("click", () => {
-        
-    chrome.runtime.sendMessage({ action: "runScript" });
+    
+
+    chrome.runtime.sendMessage({ action: "runBackend" });
 
     // function delay(ms) {
     //   return new Promise(resolve => setTimeout(resolve, ms));
