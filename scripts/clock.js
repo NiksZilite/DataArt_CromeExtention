@@ -32,7 +32,7 @@ function timeNow(date = new Date()) {
 
 (function getTime(){
     const currentHour = timeNow();
-    console.log("Hour: " + currentHour);
+    // console.log("Hour: " + currentHour);
 
     cycleStyle(remap_range(currentHour, 0, 59, 300, -300), remap_range(currentHour, 0, 59, 40, 520), remap_range(currentHour, 0, 59, 10, 170), remap_range(currentHour, 0, 59, 85, -25));
 

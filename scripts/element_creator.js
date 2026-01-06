@@ -7,7 +7,7 @@ const fontStyleSheet = injected_style.sheet;
 
 console.log("Created a refrence to extention style sheet.");
 
-var fontURLrefrence = chrome.runtime.getURL("fonts/MyFontWOFF2.woff2");
+var fontURLrefrence = chrome.runtime.getURL("fonts/FontCookie.woff2");  //Also Change the name in Manifest "Resources"
 fontStyleSheet.insertRule("@font-face {font-family: 'customFont'; src: url(" + fontURLrefrence + ") format('woff2'); font-weight : 400; ont-style : normal; font-display : swap;", 0);
 
 console.log("Added icon_font refrence to style sheet.");

@@ -21,7 +21,7 @@
 
   "web_accessible_resources": [{
     "resources": [
-      "fonts/MyFontWOFF2.woff2"
+      "fonts/FontCookie.woff2"
     ],
         "matches": ["*://*/*"],
         "extention_ids" : ["*"],

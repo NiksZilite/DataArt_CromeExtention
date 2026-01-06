@@ -23,18 +23,17 @@
 
 body, html, * {
   font-family: "customFont" !important;
-  font-size: 50px !important;
-  position: relative !important;
+  /* font-size: 100px !important; */
+  /* position: relative !important; */
   border: none !important;
   text-decoration: none !important;
-  text-wrap: wrap !important;
+  /* text-wrap: wrap !important; */
   font-style: normal !important;
 
-  background-color: hsl(var(--backgroundHUE, 0), 100%, var(--backgroundLightness, 90%));
-  color: hsl(var(--textColorHUE, 280), 100%, var(--textColorLightness, 30%));
-  transition: background-color 0.5s ease-out, color 0.5s ease-out;
+  background-color: hsl(var(--backgroundHUE, 0), 100%, var(--backgroundLightness, 90%)) !important;
+  color: hsl(var(--textColorHUE, 280), 100%, var(--textColorLightness, 30%)) !important;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out !important;
   /* filter: invert(var(--invertPrecent, 0%)) !important; */
-
 
   /*
     Dawn = background-color: hsl(0, 100%, 90%), color: hsl(280, 100%, 30%)
@@ -42,6 +41,11 @@ body, html, * {
     Dusk = 
     Midnight = background-color: hsl(300, 100%, 10%), color: hsl(40, 100%, 85%)
   */
+
+
+  padding: 0px !important;
+  margin: 0px !important;
+  border-style: none !important;
 }
 
 body {
@@ -54,15 +58,19 @@ a {
 
 #playerSvg {
   position: absolute !important;
-  top: 10px;
-  left: 10px;
+  top: 20px;
+  left: 20px;
   z-index: 9999 !important;
-  max-height: 50px !important;
-  min-height: 50px !important;
+  max-height: 40px !important;
+  min-height: 40px !important;
 }
 
 #playerSvg > * {
   fill: #b9c724 !important;
+}
+
+.foundCookie {
+  color: #ff0000 !important;
 }
 
 /* @keyframes invert {
