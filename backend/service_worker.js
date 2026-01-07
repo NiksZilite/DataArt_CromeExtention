@@ -11,6 +11,10 @@ function runBackend() {
         extentionState = 'on';
 
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            chrome.scripting.executeScript({
+                target: { tabId: tabs[0].id },
+                files: ["scripts/data_collector.js"]
+            });
             chrome.scripting.insertCSS({
                 target: { tabId: tabs[0].id },
                 files: ["styles/injected_style.css"]
@@ -27,10 +31,7 @@ function runBackend() {
             //     target: { tabId: tabs[0].id },
             //     files: ["scripts/clock.js"]
             // });
-            chrome.scripting.executeScript({
-                target: { tabId: tabs[0].id },
-                files: ["scripts/data_collector.js"]
-            });
+
         });
 }
 

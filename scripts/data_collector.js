@@ -48,19 +48,28 @@ const dontDeleteIDs = ["playerSvg"];
 
 
 
-const observer = new MutationObserver(mutations => {
-  mutations.forEach(mutation => {
-    mutation.addedNodes.forEach(node => {
-      if (node.tagName === "IMG") {
-        node.remove();
-        console.log('deleted IMG');
-    } else if (node.tagName === "SVG" && !dontDeleteIDs.includes(node.id)) {
-        node.remove();
-        console.log('deleted SVG');
-    }
-    });
-  });
-});
+// const observer = new MutationObserver(mutations => {
+//   mutations.forEach(mutation => {
+//     mutation.addedNodes.forEach(node => {
+//       if (node.tagName === "IMG") {
+//         node.remove();
+//         console.log('deleted IMG');
+//     } else if (node.tagName === "SVG" && !dontDeleteIDs.includes(node.id)) {
+//         node.remove();
+//         console.log('deleted SVG');
+//     }
+//     });
+//   });
+// });
 
 
 // observer.observe(document.body, { childList: true, subtree: true })
+
+const allText = document.body.innerText;
+
+document.body.innerText = "";
+
+    var reworkedText = document.createElement("p");
+    document.body.appendChild(reworkedText);
+    reworkedText.classList.add('reworkedText');
+    reworkedText.innerHTML += allText;
