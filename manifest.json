@@ -3,7 +3,8 @@
   "description": "Extention Made by Niks Zīlīte",
   "version": "0.1",
   "manifest_version": 3,
-  "permissions" : ["scripting", "activeTab"],
+  "permissions" : ["scripting", "activeTab", "storage"],
+  "host_permissions": ["https://*/*", "http://*/*"],
 
   "action": {
     "default_popup": "extentions_UI.html"

@@ -27,6 +27,10 @@ body {
     fill: white;
 }
 
+/* .button_svg.active {
+    fill: red;
+} */
+
 #player_color_selector {
     background-color: #131414;
     border: none;

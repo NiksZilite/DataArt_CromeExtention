@@ -56,12 +56,14 @@ function walk_DOWN() {
     playerY = playerY + playerMovementSpeed;
     playerBottomOffset = playerBottomPadding + playerSize;
 
-    if (playerY > webpageHeight - playerBottomOffset) {             
-        player.style.top = webpageHeight - playerBottomOffset + "px";
-        playerY = webpageHeight - playerBottomOffset;
-    } else {
-        player.style.top = playerY + "px";
-    }
+    player.style.top = playerY + "px";
+
+    // if (playerY > webpageHeight - playerBottomOffset) {             
+    //     player.style.top = webpageHeight - playerBottomOffset + "px";
+    //     playerY = webpageHeight - playerBottomOffset;
+    // } else {
+    //     player.style.top = playerY + "px";
+    // }
 }
 
 function walk_RIGHT() {
@@ -69,12 +71,14 @@ function walk_RIGHT() {
     console.log(webpageWidth, playerX);
 
 
-    if (playerX > webpageWidth) {
-        player.style.left = webpageWidth + "px";
-        playerX = webpageWidth;
-    } else {
-        player.style.left = playerX + "px";
-    }
+    player.style.left = playerX + "px";
+
+    // if (playerX > webpageWidth) {
+    //     player.style.left = webpageWidth + "px";
+    //     playerX = webpageWidth;
+    // } else {
+    //     player.style.left = playerX + "px";
+    // }
 
 }
 

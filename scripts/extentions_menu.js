@@ -1,16 +1,25 @@
 let playerColor;
 let PlayerColorID = 0;
 
-
+let isExtensionOn = 'off';
 
 const playerSprite = document.getElementById("player-color-showcase");
+const startButton = document.getElementById("start-button");
+const noOff = document.getElementById("on_off");
 
 
 
-document.getElementById("start-button").addEventListener("click", () => {
+startButton.addEventListener("click", () => {
     
 
     chrome.runtime.sendMessage({ action: "runBackend" });
+    if (isExtensionOn = 'off') {
+        noOff.style.fill = "red";
+        const isExtensionOn = 'on';
+    } else if (isExtensionOn = 'on'){
+        noOff.style.fill = "#b9c724";
+        const isExtensionOn = 'off';
+    }
 
     // function delay(ms) {
     //   return new Promise(resolve => setTimeout(resolve, ms));

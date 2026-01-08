@@ -22,7 +22,7 @@ function cycleStyle(value1, value2, percent1, percent2) {
 }
 
 function timeNow(date = new Date()) {
-    return (date.getSeconds());
+    return (date.getMinutes());
     //     return (
     //     String(date.getHours()).padStart(2, "0") + ":" +
     //     String(date.getMinutes()).padStart(2, "0") + ":" +

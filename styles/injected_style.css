@@ -21,7 +21,7 @@
 
 body, html, * {
   font-family: "customFont" !important;
-  /* font-size: 100px !important; */
+  font-size: 100px !important;
   border: none !important;
   text-decoration: none !important;
   font-style: normal !important;
@@ -78,7 +78,7 @@ a {
     position : absolute !important;
     top : 0px !important;
     left : 0px !important;
-   background-color: red !important;
+   /* background-color: red !important; */
 }
 /* @keyframes invert {
   0% {filter: invert(0);}

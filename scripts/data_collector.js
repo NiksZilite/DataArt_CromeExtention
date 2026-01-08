@@ -65,11 +65,71 @@ const dontDeleteIDs = ["playerSvg"];
 
 // observer.observe(document.body, { childList: true, subtree: true })
 
-const allText = document.body.innerText;
+// const allText = document.body.innerText;
+
+function extractTextWithLinks() {
+  const clone = document.body.cloneNode(true);
+
+  clone.querySelectorAll(
+    "script,style,noscript,iframe,canvas,svg,img,picture,video,audio,source,track,embed,object,link,meta"
+  ).forEach(el => el.remove());
+
+  clone.querySelectorAll(
+    "nav, footer, header, aside"
+  ).forEach(el => el.remove());
+
+  clone.querySelectorAll("*").forEach(el => {
+    el.removeAttribute("class");
+    el.removeAttribute("id");
+  });
+
+  clone.querySelectorAll("*").forEach(el => {
+    [...el.attributes].forEach(attr => {
+      if (attr.name.startsWith("on")) {
+        el.removeAttribute(attr.name);
+      }
+    });
+  });
+
+  clone.querySelectorAll("*").forEach(el => {
+  if (!["P", "A", "H1", "H2", "H3", "UL", "OL", "LI", "BLOCKQUOTE"].includes(el.tagName)) {
+    el.replaceWith(...el.childNodes);
+  }
+});
+
+  return clone.innerHTML;
+}
+
+const content = extractTextWithLinks();
+
+chrome.runtime.sendMessage({
+  action: "SAVE_PAGE_HTML",
+  html: content
+});
+
+
+
+// chrome.runtime.sendMessage({
+  
+//   action: "SAVE_PAGE_TEXT",
+//   text: allText
+// });
 
 document.body.innerText = "";
 
+chrome.storage.local.get(["savedPage_new", "savedPage_old", "commonWords"], (result) => {
+  if (!result.savedPage_new) return;
+      console.log("New: " + result.savedPage_new);
+      console.log("Old: " + result.savedPage_old);
     var reworkedText = document.createElement("p");
-    document.body.appendChild(reworkedText);
     reworkedText.classList.add('reworkedText');
-    reworkedText.innerHTML += allText;
+    reworkedText.innerHTML = result.savedPage_new;
+    document.body.appendChild(reworkedText);
+    console.log("Pages saved & compared. Common words:", result.commonWords);
+});
+
+
+
+
+
+
